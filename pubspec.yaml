@@ -1,0 +1,36 @@
+name: helthcare
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.3.4 <4.0.0'
+flutter_native_splash:
+  color: "#ffffff" # Background color of the splash screen
+  image: assets/images/splash_image.png # Path to your splash screen image
+  android: true
+  ios: true
+  web: true
+  fullscreen: true
+
+dependencies: 
+  cupertino_icons: ^1.0.6
+  get: 4.6.6
+  flutter: 
+    sdk: flutter
+  flutter_native_splash: ^2.4.0
+  get_storage: ^2.1.1
+  dio: ^5.0.0
+  sqflite: ^2.0.3+1
+  path: ^1.8.3
+  iconsax:
+
+dev_dependencies: 
+  flutter_lints: ^3.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+  assets:
+    - assets/images/
+
