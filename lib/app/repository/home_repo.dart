@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'dart:convert'; // Import for JSON encoding/decoding
+import 'dart:convert';
 
 import '../data/api_service.dart';
 
@@ -15,7 +15,6 @@ Future<List<ApiServiceResponse>> fetchDataFromAPI() async {
     }
 
     if (response.statusCode == 200 && response.data != null) {
-      // Convert the response data back to a JSON string, then parse it using your model
       String jsonString = json.encode(response.data);
       return apiServiceResponseFromJson(jsonString); // Corrected parsing
     } else {

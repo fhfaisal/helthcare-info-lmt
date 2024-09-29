@@ -12,7 +12,7 @@ class DataScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const Text('Internet Data', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Text('Internet Data', style: Theme.of(context).textTheme.titleLarge),
             Expanded(
               child: Obx(() {
                 if(controller.loading.value==true){
@@ -40,7 +40,7 @@ class DataScreen extends StatelessWidget {
               }),
             ),
             const Divider(),
-            const Text('Local Database Data', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Text('Local Database Data', style: Theme.of(context).textTheme.titleLarge),
             Expanded(
               child: Obx(() {
                 if (controller.localData.isEmpty) {

@@ -7,7 +7,7 @@ import '../../../repository/home_repo.dart';
 
 class HomeController extends GetxController {
   final selectedIndex = 0.obs;
-  final loading=false.obs;
+  final loading = false.obs;
   final allData = <ApiServiceResponse>[].obs;
   var localData = [].obs; // Local database
   final DatabaseHelper dbHelper = DatabaseHelper.instance;
@@ -19,13 +19,14 @@ class HomeController extends GetxController {
     fetchLocalData();
   }
 
+  ///fetching the data using fetchDataFromAPI method
   Future<List<ApiServiceResponse>?> fetchApiData() async {
     try {
-      loading.value=true;
+      loading.value = true;
       await fetchDataFromAPI().then((response) {
         return allData.value = response;
       });
-      loading.value=false;
+      loading.value = false;
     } catch (e) {
       if (kDebugMode) {
         print(e);
@@ -34,11 +35,13 @@ class HomeController extends GetxController {
     return null;
   }
 
+  ///fetch local saved data from local database
   Future<void> fetchLocalData() async {
     var data = await dbHelper.queryAllRows();
     localData.assignAll(data);
   }
 
+  ///saving data to local database
   Future<void> insertIntoLocalDb(ApiServiceResponse item) async {
     await dbHelper.insert({
       'name': item.name,
@@ -47,11 +50,13 @@ class HomeController extends GetxController {
     fetchLocalData();
   }
 
+  ///delete data from local database
   Future<void> deleteFromLocalDb(int id) async {
     await dbHelper.delete(id);
     fetchLocalData();
   }
 
+  ///change screens
   void changeTabIndex(int index) {
     selectedIndex.value = index;
   }
